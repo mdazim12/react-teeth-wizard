@@ -15,7 +15,15 @@ import Profile from "../components/Profle/Profile";
                 {
                     path : '/',
                     element : <Home></Home>,
-                    loader : () => fetch('services.json')
+                    loader : async () => {
+                        const servicesRes = await fetch('services.json')
+                        const services = await servicesRes.json()
+
+                        const feedbackRes = await fetch('happyclinets.json')
+                        const feedback = await feedbackRes.json()
+
+                        return {services,feedback}
+                    }
                 },
                 {
                     path : 'about',
@@ -23,7 +31,16 @@ import Profile from "../components/Profle/Profile";
                 },
                 {
                     path : 'all-threatments',
-                    element : <AllTheatements></AllTheatements>
+                    element : <AllTheatements></AllTheatements>,
+                    loader : async () => {
+                        const servicesRes = await fetch('services.json')
+                        const services = await servicesRes.json()
+
+                        const feedbackRes = await fetch('happyclinets.json')
+                        const feedback = await feedbackRes.json()
+
+                        return {services,feedback}
+                    }
                 },
                 {
                     path : 'my-appoinments',

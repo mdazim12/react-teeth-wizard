@@ -3,7 +3,7 @@
 const ServicesCard = ({ services }) => {
 
     const {treatment,image,description,cost} = services;
-    console.log(services);
+    
 
     return (
         <div className="card bg-base-100 shadow-xl">

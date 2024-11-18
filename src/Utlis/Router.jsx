@@ -14,7 +14,8 @@ import Profile from "../components/Profle/Profile";
             children : [
                 {
                     path : '/',
-                    element : <Home></Home>
+                    element : <Home></Home>,
+                    loader : () => fetch('services.json')
                 },
                 {
                     path : 'about',

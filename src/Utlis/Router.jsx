@@ -37,10 +37,7 @@ import Detail from "../components/Detail/Detail";
                         const servicesRes = await fetch('/services.json');
                         const services = await servicesRes.json()
 
-                        const feedbackRes = await fetch('/happyclinets.json');
-                        const feedback = await feedbackRes.json()
-
-                        return {services,feedback}
+                        return {services}
                     }
                 },
                 {

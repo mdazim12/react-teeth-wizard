@@ -19,7 +19,7 @@ const ServicesCard = ({ services }) => {
                 <p>{description}</p>
                 <div className="card-actions justify-end">
                     <div className="badge badge-outline bg-primary text-white p-3">
-                        <Link to={`details/${id}`}>
+                        <Link to={`/details/${id}`}>
                             <button>CheckOut</button>
                         </Link>
                     </div>

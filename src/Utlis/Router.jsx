@@ -5,6 +5,7 @@ import About from "../components/About/About";
 import AllTheatements from "../components/AllTheatements/AllTheatements";
 import MyAppoinments from "../components/MyAppoinments/MyAppoinments";
 import Profile from "../components/Profle/Profile";
+import Detail from "../components/Detail/Detail";
 
     const router = createBrowserRouter([
         
@@ -16,10 +17,10 @@ import Profile from "../components/Profle/Profile";
                     path : '/',
                     element : <Home></Home>,
                     loader : async () => {
-                        const servicesRes = await fetch('services.json')
+                        const servicesRes = await fetch('/services.json');
                         const services = await servicesRes.json()
 
-                        const feedbackRes = await fetch('happyclinets.json')
+                        const feedbackRes = await fetch('/happyclinets.json');
                         const feedback = await feedbackRes.json()
 
                         return {services,feedback}
@@ -33,10 +34,10 @@ import Profile from "../components/Profle/Profile";
                     path : 'all-threatments',
                     element : <AllTheatements></AllTheatements>,
                     loader : async () => {
-                        const servicesRes = await fetch('services.json')
+                        const servicesRes = await fetch('/services.json');
                         const services = await servicesRes.json()
 
-                        const feedbackRes = await fetch('happyclinets.json')
+                        const feedbackRes = await fetch('/happyclinets.json');
                         const feedback = await feedbackRes.json()
 
                         return {services,feedback}
@@ -49,6 +50,20 @@ import Profile from "../components/Profle/Profile";
                 {
                     path : 'profile',
                     element : <Profile></Profile>
+                },
+                {
+                    path : 'details/:id',
+                    element : <Detail></Detail>,
+                    loader : async ({params}) => {
+                        const res = await fetch('services.json')
+                        const data = await res.json()
+                       // console.log(data, params)
+
+                        const singleDate = data.find(d => d.id == params.id)
+                        // console.log(singleDate)
+                        return singleDate;
+
+                    }
                 }
             ]
         }

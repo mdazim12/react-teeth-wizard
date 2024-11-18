@@ -7,7 +7,7 @@ const FeedBack = ({feedback}) => {
 
     const {reviewId,name,userImg,review} = feedback;
 
-    console.log(feedback)
+   
 
 
     return (
